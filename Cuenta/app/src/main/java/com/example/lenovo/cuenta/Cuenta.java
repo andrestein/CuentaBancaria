@@ -29,8 +29,8 @@ public class Cuenta {
     }
     //Este metodo ingresa dinero a la cuenta
     public String consignar(double consignacion){
-        this.setSaldo(this.getSaldo()+ consignacion);
-        return "La consignacion fue exitosa su saldo actual es de : "+this.getSaldo();
+        saldo = (saldo + consignacion);
+        return "La consignacion fue exitosa su saldo actual es de : "+saldo;
     }
     //Este metodo retorna el saldo
     public String consultarSaldo(){

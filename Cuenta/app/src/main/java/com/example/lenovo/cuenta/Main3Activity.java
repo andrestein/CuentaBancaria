@@ -25,17 +25,21 @@ public class Main3Activity extends AppCompatActivity {
         btnConsigar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int con=0;
+                double consignacion;
+                consignacion = Double.parseDouble(txtConsigar.getText().toString());
                 if(txtConsigar.getText().toString() != ""){
-                    double consignacion;
-                    consignacion = Double.parseDouble(txtConsigar.getText().toString());
                     try {
-                        cuenta.consignar(consignacion);
-                        Toast.makeText(getApplicationContext(), "La consignacion se efectuo con exito", Toast.LENGTH_SHORT);
+                        Toast.makeText(getApplicationContext(), "La consignacion se efectuo con exito", Toast.LENGTH_SHORT).show();
+                        con++;
                     }catch (ArithmeticException e){
                         Toast.makeText(getApplicationContext(),"Solo se debe ingresar numeros", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(getApplicationContext(),"Debe escribir el valor a consignar",Toast.LENGTH_SHORT).show();
+                }
+                if(con ==1){
+                    cuenta.consignar(consignacion);
                 }
             }
         });

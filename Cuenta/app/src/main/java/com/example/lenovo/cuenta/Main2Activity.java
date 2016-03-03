@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
+public class Main2Activity extends AppCompatActivity {
 
     private Button btnConsignaciones;
     private Button btnRetiros;

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                         if (c.getId().equals(txtNumeroCuenta.getText().toString()) &&
                                 c2.getClave().equals(txtClaveCuenta.getText().toString())) {
                             Intent intento = new Intent(getApplicationContext(), Main2Activity.class);
-                            cuenta = c;
+                            setCuenta(c);
                             startActivity(intento);
                             break;
                         }
