@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.lenovo.cuenta.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:background="@mipmap/bg3">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/lb2"
+            android:layout_weight="0.12"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/lb3"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Ingrese numero de cuenta"
+            android:id="@+id/txtNumeroCuenta"
+            android:textStyle="bold"
+            android:textColorLink="#ffffff"
+            android:textColorHint="#ffffff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/lb"
+            android:layout_weight="0.12" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Ingrese clave"
+            android:id="@+id/txtClaveCuenta"
+            android:textStyle="bold"
+            android:textColorHint="#ffffff"
+            android:textColorHighlight="#ffffff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/lb4"
+            android:layout_weight="0.12"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:text="Ingresar"
+            android:id="@+id/btnIngresar"
+            android:layout_gravity="center_horizontal"
+            android:background="#676e92" />
+    </LinearLayout>
+</AbsoluteLayout>
