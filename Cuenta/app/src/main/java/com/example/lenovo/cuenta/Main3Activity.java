@@ -25,31 +25,28 @@ public class Main3Activity extends AppCompatActivity {
         btnConsigar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int con=0;
                 double consignacion;
                 consignacion = Double.parseDouble(txtConsigar.getText().toString());
-                if(txtConsigar.getText().toString() != ""){
-                    try {
-                        Toast.makeText(getApplicationContext(), "La consignacion se efectuo con exito", Toast.LENGTH_SHORT).show();
-                        con++;
-                    }catch (ArithmeticException e){
-                        Toast.makeText(getApplicationContext(),"Solo se debe ingresar numeros", Toast.LENGTH_SHORT).show();
-                    }
-                }else{
-                    Toast.makeText(getApplicationContext(),"Debe escribir el valor a consignar",Toast.LENGTH_SHORT).show();
-                }
-                if(con ==1){
+                if (txtConsigar.getText().toString() != "") try {
+                    Toast.makeText(getApplicationContext(), "La consignacion se efectuo con exito", Toast.LENGTH_SHORT).show();
                     cuenta.consignar(consignacion);
+                } catch (ArithmeticException e) {
+                    Toast.makeText(getApplicationContext(), "Solo se debe ingresar numeros", Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    Toast.makeText(getApplicationContext(), "Debe escribir el valor a consignar", Toast.LENGTH_SHORT).show();
+                }
+                finish();
             }
         });
+
+
     }
 
     private void iniciar(){
-        MainActivity mai= new MainActivity();
         btnConsigar=(Button) findViewById(R.id.btnConsigar2);
         txtConsigar = (EditText) findViewById(R.id.txtConsignar);
-        cuenta = mai.getCuenta();
-    }
+        cuenta=(Cuenta)getIntent().getSerializableExtra("cuenta");
 
+    }
 }

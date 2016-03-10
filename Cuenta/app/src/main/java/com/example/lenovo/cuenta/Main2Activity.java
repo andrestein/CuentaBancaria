@@ -10,6 +10,7 @@ import android.widget.Button;
 public class Main2Activity extends AppCompatActivity {
 
     private Button btnConsignaciones;
+    private Cuenta cuenta;
     private Button btnRetiros;
     private Button btnConsultas;
     private Button btnTrasnferencias;
@@ -29,6 +30,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(getApplicationContext(),Main3Activity.class);
+                intent1.putExtra("cuenta",cuenta);
                 startActivity(intent1);
             }
         });
@@ -37,6 +39,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(getApplicationContext(),Main4Activity.class);
+                intent2.putExtra("cuenta",cuenta);
                 startActivity(intent2);
             }
         });
@@ -45,6 +48,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent3 = new Intent(getApplicationContext(),Main5Activity.class);
+                intent3.putExtra("cuenta",cuenta);
                 startActivity(intent3);
             }
         });
@@ -53,6 +57,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent4 = new Intent(getApplicationContext(),Main6Activity.class);
+                intent4.putExtra("cuenta",cuenta);
                 startActivity(intent4);
             }
         });
@@ -61,6 +66,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent5 = new Intent(getApplicationContext(),Main7Activity.class);
+                intent5.putExtra("cuenta",cuenta);
                 startActivity(intent5);
             }
         });
@@ -72,5 +78,8 @@ public class Main2Activity extends AppCompatActivity {
         btnConsultas = (Button) findViewById(R.id.btnConsultas);
         btnRetiros = (Button) findViewById(R.id.btnRetiros);
         btnTrasnferencias = (Button) findViewById(R.id.btnTransferencia);
+        cuenta=(Cuenta)getIntent().getSerializableExtra("cuenta");
+
+
     }
 }

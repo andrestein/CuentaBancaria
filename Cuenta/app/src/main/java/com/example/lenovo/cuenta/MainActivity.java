@@ -12,11 +12,19 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Cuenta>cuentas ;
+    private static ArrayList<Cuenta> cuentas ;
     private Button btnIngresar;
     private EditText txtNumeroCuenta;
     private EditText txtClaveCuenta;
     private Cuenta cuenta;
+
+    public static ArrayList<Cuenta> getCuentas() {
+        return cuentas;
+    }
+
+    public static void setCuentas(ArrayList<Cuenta> cuentas) {
+        MainActivity.cuentas = cuentas;
+    }
 
 
     @Override
@@ -31,13 +39,12 @@ public class MainActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (Cuenta c: getCuentas()
-                     ) {
-                    for (Cuenta c2: getCuentas()) {
+                for (Cuenta c : getCuentas()){
+                    for (Cuenta c2 : getCuentas()) {
                         if (c.getId().equals(txtNumeroCuenta.getText().toString()) &&
                                 c2.getClave().equals(txtClaveCuenta.getText().toString())) {
                             Intent intento = new Intent(getApplicationContext(), Main2Activity.class);
-                            setCuenta(c);
+                            intento.putExtra("cuenta", c);
                             startActivity(intento);
                             break;
                         }
@@ -53,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
         txtClaveCuenta = (EditText)findViewById(R.id.txtClaveCuenta);
 
 
-        cuentas =new ArrayList<>();
-        cuentas.add(new Cuenta("2314", "1243", "Medellin", 400000));
-        cuentas.add(new Cuenta("4312", "5412", "Bogota", 500000));
-        cuentas.add(new Cuenta("9380", "2834", "Armenia", 400000));
-        cuentas.add(new Cuenta("2834", "4312", "Meta", 600000));
-        cuentas.add(new Cuenta("4352", "7384", "Medellin", 100000));
+        setCuentas(new ArrayList<Cuenta>());
+        getCuentas().add(new Cuenta("2314", "1243", 400000));
+        getCuentas().add(new Cuenta("4312", "5412", 500000));
+        getCuentas().add(new Cuenta("9380", "2834", 400000));
+        getCuentas().add(new Cuenta("2834", "4312", 600000));
+        getCuentas().add(new Cuenta("4352", "7384", 100000));
     }
 
     public Cuenta getCuenta() {
@@ -67,13 +74,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
-    }
-
-    public ArrayList<Cuenta> getCuentas() {
-        return cuentas;
-    }
-
-    public void setCuentas(ArrayList<Cuenta> cuentas) {
-        this.cuentas = cuentas;
     }
 }

@@ -26,25 +26,26 @@ public class Main4Activity extends AppCompatActivity {
         btnRetirar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtRetirar.getText().toString() != ""){
-                    try{
+                if (txtRetirar.getText().toString() != "") {
+                    try {
                         cuenta.retiro(Double.parseDouble(txtRetirar.getText().toString()));
-                        Toast.makeText(getApplicationContext(), "El retiro se efectuo con exito", Toast.LENGTH_SHORT);
-                    }catch (ArithmeticException e){
-                        Toast.makeText(getApplicationContext(),"Solo ingrese numeros",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "El retiro se efectuo con exito", Toast.LENGTH_SHORT).show();
+                    } catch (ArithmeticException e) {
+                        Toast.makeText(getApplicationContext(), "Solo ingrese numeros", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(getApplicationContext(),"Debe ingresar un valor a retirar",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Debe ingresar un valor a retirar", Toast.LENGTH_SHORT).show();
                 }
+                finish();
             }
         });
+
     }
 
     public void iniciar(){
-        MainActivity mai= new MainActivity();
+        cuenta=(Cuenta)getIntent().getSerializableExtra("cuenta");
         btnRetirar=(Button)findViewById(R.id.btnRetirar2);
         txtRetirar=(EditText)findViewById(R.id.txtRetirar);
-        cuenta =  mai.getCuenta();
     }
 
 }

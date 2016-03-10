@@ -1,9 +1,11 @@
 package com.example.lenovo.cuenta;
 
+import java.io.Serializable;
+
 /**
  * Created by LENOVO on 20/02/2016.
  */
-public class Cuenta {
+public class Cuenta implements Serializable{
 
     //Atributos
     private String id;
@@ -11,12 +13,18 @@ public class Cuenta {
     private String sucursal;
     private double saldo;
 
-    //Constructor de la clase cuenta
-    public Cuenta(String id,String clave,String sucursal,double saldo){
+
+    public Cuenta(){
         this.setId(id);
         this.setClave(clave);
         this.setSaldo(saldo);
-        this.setSucursal(sucursal);
+    }
+    //Constructor de la clase cuenta
+    public Cuenta(String id,String clave,double saldo){
+        this.setId(id);
+        this.setClave(clave);
+        this.setSaldo(saldo);
+
     }
     //Este metodo retira el dinero de la cuenta
     public String retiro(double retirar){
@@ -62,14 +70,6 @@ public class Cuenta {
 
     public void setClave(String clave) {
         this.clave = clave;
-    }
-
-    public String getSucursal() {
-        return sucursal;
-    }
-
-    public void setSucursal(String sucursal) {
-        this.sucursal = sucursal;
     }
 
     public double getSaldo() {

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class Main6Activity extends AppCompatActivity {
 
-    private Cuenta cueta;
+    private Cuenta cuenta;
     private Button btnCambiarClave;
     private EditText txtCambioClave;
     @Override
@@ -24,19 +24,21 @@ public class Main6Activity extends AppCompatActivity {
         btnCambiarClave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtCambioClave.getText().toString() != "") {
-                    cueta.setClave(txtCambioClave.getText().toString());
-                    Toast.makeText(getApplicationContext(), "El cambio se efectuo con exito", Toast.LENGTH_SHORT);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Debe ingresar la contraseña",Toast.LENGTH_SHORT).show();
+                if (txtCambioClave.getText().toString() != "") {
+                    cuenta.setClave(txtCambioClave.getText().toString());
+                    Toast.makeText(getApplicationContext(), "El cambio se efectuo con exito", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Debe ingresar la contraseña", Toast.LENGTH_SHORT).show();
                 }
+
+                finish();
             }
         });
+
     }
 
     public void inicar(){
-        MainActivity mai= new MainActivity();
-        cueta = mai.getCuenta();
+        cuenta=(Cuenta)getIntent().getSerializableExtra("cuenta");
         btnCambiarClave = (Button) findViewById(R.id.btnCambioClave2);
         txtCambioClave = (EditText) findViewById(R.id.txtCambioClave);
     }
